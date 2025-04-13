@@ -9,7 +9,12 @@ const app = express();
 
 //MIDDLEWARES
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
+
+
+//Router
+
+app.use("/auth", authRouter);
 
 //Database connection
 
