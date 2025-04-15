@@ -1,24 +1,21 @@
 const mongoose = require("mongoose");
 
 const ParcelSchema = mongoose.Schema({
+  from: { type: String, required: true },
+  to: { type: String, required: true },
+  sendername: { type: String, required: true },
+  recipientname: { type: String, required: true },
+  sendermail: { type: String, required: true },  // Only define this once
+  recipientemail: { type: String, required: true },
+  weight: { type: Number, required: true },
+  cost: { type: Number, required: true },
+  date: { type: String, required: true },
+  note: { type: String },
+  feedback: { type: String },
+  status: { type: String, default: "0" },  // Default status as string, not number
 
-    from:{type:String, require: true},
-    to:{type:String, require: true},
-    sendername:{type:String, require: true},
-    recipientname:{type:String, require: true},
-    sendermail:{type:String, require: true},
-    sendermail:{type:String, require: true},
-    recipientemail:{type:String, require: true},
-    weight:{type:Number, require: true},
-    cost:{type:Number, require: true},
-    date:{type:String, require: true},
-    note:{type:String},
-    feedback:{type:String},
-    status:{type:String, default:0},
-    
- 
+}, {
+  timestamps: true  // Corrected the option name to `timestamps`
+});
 
-},{
-    Timestamp:true
-})
-module.exports = mongoose.model("Parcel", ParcelSchema)
+module.exports = mongoose.model("Parcel", ParcelSchema);

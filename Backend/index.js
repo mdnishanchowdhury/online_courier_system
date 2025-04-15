@@ -15,19 +15,17 @@ app.use(express.json());
 
 //Router
 
-app.use("/auth", authRouter);
-app.use("/users", userRoute);
-app.use("/parcel", parcelRoute);
+app.use("/api/v1/auth", authRouter);
+// app.use("/api/v1/auth", userRoute);
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/parcels", parcelRoute);
 
 //Database connection
 
 const DB = process.env.DB;
-mongoose
-  .connect(DB)
-  .then(() => {
+mongoose.connect(DB).then(() => {
     console.log("DB connection is successful");
-  })
-  .catch((err) => {
+  }).catch((err) => {
     console.log(err);
   });
 
