@@ -36,14 +36,16 @@ const loginUser = async (req, res) => {
       return res.status(401).json("You have not registered");
     }
 
-    const hashedPassword = CryptoJS.AES.decrypt(
+    // const hashedPassword = CryptoJS.AES.decrypt
+    
+    const hashedPassword = cryptoJs.AES.decrypt(
       user.password,
       process.env.PASS
     );
 
     const originalPassword = hashedPassword.toString(cryptoJs.enc.Utf8);
 
-    if (originalPassword !== res.body.password) {
+    if (originalPassword !== req.body.password) {
       return res.status(500).json("Wrong password");
     }
 
