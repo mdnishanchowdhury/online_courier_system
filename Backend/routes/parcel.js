@@ -18,7 +18,7 @@ router.get("/", verifyTokenAndAuthorization, getAllParcels);
 
 //update parcel
 router.put("/:id", updateParcel);
-
+ 
 //get one parcel
 
 router.get("/find/:id", getOneParcel);
